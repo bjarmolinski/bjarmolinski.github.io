@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <script type='text/javascript'>
+            function getQueryParam(name) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
+            }
+            
+            var contactId = getQueryParam('contactId');
+            window.addEventListener("onEmbeddedMessagingReady", e => {
+                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+                    "Customer_ID": contactId
+                });
+        });
+</script>
+    </head>
     <body>
         <h1>Welcome to Embedded Messaging</h1>
         <p>Click the chat icon to start a conversation.</p>
