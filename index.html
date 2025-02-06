@@ -8,12 +8,11 @@
             function initEmbeddedMessaging() {
                 try {
                     embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-                    embeddedservice_bootstrap.settings.devMode = true;
         
                     embeddedservice_bootstrap.init(
                         '00DdM00000JCNpA',
-                        'ESA_Web_Deployment',
-                        'https://orgfarm-75e731efe3-dev-ed.develop.my.site.com/ESWESAWebDeployment1724800920657',
+                        'AgentDeployment',
+                        'https://orgfarm-75e731efe3-dev-ed.develop.my.site.com/ESWAgentDeployment1738843649715',
                         {
                             scrt2URL: 'https://orgfarm-75e731efe3-dev-ed.develop.my.salesforce-scrt.com'
                         }
@@ -23,7 +22,7 @@
                 }
             };
         </script>
-        <script type='text/javascript' src='https://orgfarm-75e731efe3-dev-ed.develop.my.site.com/ESWESAWebDeployment1724800920657/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+        <script type='text/javascript' src='https://orgfarm-75e731efe3-dev-ed.develop.my.site.com/ESWAgentDeployment1738843649715/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>        
         <script onload="embeddedservice_bootstrap.utilAPI.launchChat()"></script>
         <script>console.log(JSON.stringify(embeddedservice_bootstrap))</script>
     </body>
