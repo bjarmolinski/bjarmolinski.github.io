@@ -1,43 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <script type='text/javascript'>
-            function getQueryParam(name) {
-                    const urlParams = new URLSearchParams(window.location.search);
-                    return urlParams.get(name);
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salesforce Enhanced Chat Test Page</title>
+    <style>
+        /* Basic styling for visibility */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+            background-color: #f4f4f9;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        h1 {
+            color: #1798c1; /* Salesforce Blue-ish */
+        }
+        p {
+            color: #333;
+        }
+    </style>
+
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+                embeddedservice_bootstrap.init(
+                    '00Dbm00000R5qOD',
+                    'TestWebChat',
+                    'https://dbm00000r5qodeaz-dev-ed.develop.my.site.com/ESWTestWebChat1763550615139',
+                    {
+                        scrt2URL: 'https://dbm00000r5qodeaz-dev-ed.develop.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
             }
-            
-            var contactId = getQueryParam('contactId');
-            window.addEventListener("onEmbeddedMessagingReady", e => {
-                embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-                    "Customer_ID": contactId
-                });
-        });
-</script>
-    </head>
-    <body>
-        <h1>Welcome to Embedded Messaging</h1>
-        <p>Click the chat icon to start a conversation.</p>
-        <button onclick="embeddedservice_bootstrap.utilAPI.launchChat()">Click Me</button>
-        <script type='text/javascript'>
-            function initEmbeddedMessaging() {
-                try {
-                    embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-        
-                    embeddedservice_bootstrap.init(
-                        '00DdM00000JCNpA',
-                        'AgentDeployment',
-                        'https://orgfarm-75e731efe3-dev-ed.develop.my.site.com/ESWAgentDeployment1738843649715',
-                        {
-                            scrt2URL: 'https://orgfarm-75e731efe3-dev-ed.develop.my.salesforce-scrt.com'
-                        }
-                    );
-                } catch (err) {
-                    console.error('Error loading Embedded Messaging: ', err);
-                }
-            };
-        </script>
-        <script type='text/javascript' src='https://orgfarm-75e731efe3-dev-ed.develop.my.site.com/ESWAgentDeployment1738843649715/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>        
-        <script>console.log(JSON.stringify(embeddedservice_bootstrap))</script>
-    </body>
+        };
+    </script>
+    <script type='text/javascript' src='https://dbm00000r5qodeaz-dev-ed.develop.my.site.com/ESWTestWebChat1763550615139/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1>Welcome to the Enhanced Chat Test Page</h1>
+        <p>This is where we test the Salesforce Enhanced Chat integration.</p>
+        <p>**If the snippet is configured correctly, the chat widget should appear shortly.**</p>
+        <p>Keep this page open while we wait for the widget to load!</p>
+    </div>
+
+</body>
 </html>
