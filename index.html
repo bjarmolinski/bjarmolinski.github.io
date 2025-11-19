@@ -26,6 +26,12 @@
             color: #333;
         }
     </style>
+    <script>
+            window.addEventListener("onEmbeddedMessagingConversationStarted", (event) => {
+                console.log("Received the onEmbeddedMessagingConversationStarted event…");
+                console.log("Event detail: ", event.detail);
+        });
+    </script>
 </head>
 <body>
 
